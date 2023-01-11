@@ -5,7 +5,9 @@ phases:
         python: 3.10
   build:
     commands:
-      - sam package --template-file template.yaml --s3-bucket sam-apps-2023 --output-template-file packaged-template.yml
+#      - sam package --template-file template.yaml --s3-bucket sam-apps-2023 --output-template-file packaged-template.yml
+      - sam build
+      - sam deploy --no-confirm-changeset --no-fail-on-empty-changeset
 artifacts:
   files:
     - packaged-template.yml
